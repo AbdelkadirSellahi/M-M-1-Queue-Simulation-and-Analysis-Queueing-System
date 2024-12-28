@@ -1,0 +1,31 @@
+package queuingMM1;
+
+public class Simulation {
+	
+	public static void main (String[] args) {
+    	double lambda=2;
+    	double mu=3;
+    	SimulatorMM1 sm=new SimulatorMM1(lambda,mu,1000000);
+    	sm.simulate();
+    	System.out.println("Lambd = " + lambda);
+    	System.out.println("Mu = " + mu);
+
+    	System.out.println("///////////////////////Modele de simulation M/M/1 //////////////////");
+    	sm.afficher();
+    	///////////Modele analytique////////////////////////
+    	AnalyticMMS am=new AnalyticMMS(lambda,mu,1);		
+		System.out.println("///////////////////////Modele analytique M/M/1////////////////////");
+		am.afficher();
+	
+		System.out.println("///////////////////////Ecarts////////////////////");
+    	System.out.printf("%.2f","Ecart N = " + String.format("%.12f",(sm.N-am.N())/sm.N));
+    	System.out.println("Ecart Nq = " + String.format("%.12f", (sm.Nq-am.Nq())/sm.Nq));
+    	System.out.println("Ecart T = " + String.format("%.12f", (sm.T-am.T())/sm.T));
+    	System.out.println("Ecart Tq = " + String.format("%.12f", (sm.Tq-am.Tq())/sm.Tq));
+    	System.out.println("Ecart Ts = " + String.format("%.12f", (sm.Ts-1/mu)/sm.Ts));
+    	System.out.println("Ecart Taux d'utilisation=" + String.format("%.12f",(sm.su-am.a())/sm.su));
+
+    }
+
+
+}

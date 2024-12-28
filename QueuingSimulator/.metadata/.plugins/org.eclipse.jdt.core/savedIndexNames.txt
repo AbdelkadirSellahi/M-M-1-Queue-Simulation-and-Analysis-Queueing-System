@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+D:\Enseignement\MOSI\TD-TP\QueuingSimulator\.metadata\.plugins\org.eclipse.jdt.core
+1602531461.index
+2836301095.index
